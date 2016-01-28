@@ -25,7 +25,7 @@
     <![endif]-->
 </head>
 <body>
-<?php if ($user) { ?>
+<?php if (true) { ?>
     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
         <tr>
@@ -42,18 +42,18 @@
         </thead>
         <tbody>
         <?php
-        $bookings = $db->query("SELECT * FROM broneering");
-        while ($booking = $bookings->fetch_assoc()) {
+        $bookings = $db->query("SELECT * FROM booking");
+        while ($booking = @$bookings->fetch_assoc()) {
             ?>
-            <td><?php echo $booking['name']; ?></td>
+            <td><?php echo $booking['client_name']; ?></td>
             <td><?php echo $booking['email']; ?></td>
-            <td><?php echo $booking['phone']; ?></td>
-            <td><?php echo $booking['date']; ?></td>
-            <td><?php echo $booking['time']; ?></td>
-            <td><?php echo $booking['num_people']; ?></td>
-            <td><?php echo $booking['first_dish']; ?></td>
-            <td><?php echo $booking['main_dish']; ?></td>
-            <td><?php echo $booking['last_dish']; ?></td>
+            <td><?php echo $booking['phone_nr']; ?></td>
+            <td><?php echo $booking['date_added']; ?></td>
+            <td><?php echo $booking['time_id']; ?></td>
+            <td><?php echo $booking['seat_nr']; ?></td>
+            <td><?php echo $booking['appetizers']; ?></td>
+            <td><?php echo $booking['main_dishes']; ?></td>
+            <td><?php echo $booking['desserts']; ?></td>
         <?php } ?>
         </tbody>
     </table>

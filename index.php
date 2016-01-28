@@ -35,6 +35,13 @@ $result = $db->query("SELECT * FROM booking");
     </style>
 </head>
 <body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <form id="bookingForm" role="form" class="clearfix">
         <div class="row">
@@ -131,7 +138,11 @@ $result = $db->query("SELECT * FROM booking");
             </div>
         </div><!-- row -->
         <br>
-        <input id="submitBtn" type="submit" class="btn btn-info btn-lg pull-right" value="Broneeri &raquo;">
+        <div class="col-sm-offset-3 col-sm-6 btn-warning" id="error"
+             style="background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
+            <h3 style="text-align: center; color: red;" id="errorMsg">ERROR</h3>
+        </div>
+        <input id="submitBtn" type="submit" class="btn btn-warning btn-lg pull-right" value="Broneeri &raquo;">
     </form>
 </div>
 </body>
@@ -154,12 +165,16 @@ $result = $db->query("SELECT * FROM booking");
             autoclose: true
         });
     });
+
+    $('#error').hide();
+
     $('#submitBtn').on('click', function () {
-        console.log($('#bookingForm').serializeArray());
-        $.post("system/book.php", $('#bookingForm').serializeArray()).success(
-            function (res) {
-                console.log(res);
+        $.post("system/book.php", $('#bookingForm').serializeArray())
+            .done(function (res) {
+                $('#error').show();
+                $('#errorMsg').html(res);
             });
+
         return false;
     });
 </script>

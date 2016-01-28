@@ -11,6 +11,6 @@ $lastname = @$_POST['first_dish'];
 $lastname = @$_POST['main_dish'];
 $lastname = @$_POST['last_dish'];
 
-$result = $db->query("SELECT * FROM broneering");
+$result = $db->query("SELECT * FROM booking");
 
 var_dump($_POST);
