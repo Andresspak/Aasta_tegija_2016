@@ -72,7 +72,7 @@
                 $(function () {
                     $('#datetimepicker3').datetimepicker({
                         format: 'LL',
-                        daysOfWeekDisabled: [0, 6]
+                        daysOfWeekDisabled: [0, 1, 2, 5, 6]
                     });
                 });
             </script>
@@ -114,30 +114,9 @@
                 <div class="form-group">
                     <select class="input-large form-control">
                         <option value="AL" selected="selected" disabled hidden>Vali põhiroogade arv</option>
-                        <option value="1130">1</option>
-                        <option value="1145">2</option>
-                        <option value="1200">3</option>
-                        <option value="1215">4</option>
-                        <option value="1230">5</option>
-                        <option value="1245">6</option>
-                        <option value="1300">7</option>
-                        <option value="1300">8</option>
-                        <option value="1300">9</option>
-                        <option value="1300">10</option>
-                        <option value="1300">11</option>
-                        <option value="1300">12</option>
-                        <option value="1300">13</option>
-                        <option value="1300">14</option>
-                        <option value="1300">15</option>
-                        <option value="1300">16</option>
-                        <option value="1300">17</option>
-                        <option value="1300">18</option>
-                        <option value="1300">19</option>
-                        <option value="1300">20</option>
-                        <option value="1300">21</option>
-                        <option value="1300">22</option>
-                        <option value="1300">23</option>
-                        <option value="1300">24</option>
+                        <?php for ($n = 1; $n <= 26; $n++) { ?>
+                            <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
@@ -145,30 +124,9 @@
                 <div class="form-group">
                     <select class="input-large form-control">
                         <option value="AL" selected="selected" disabled hidden>Vali järelroogade arv</option>
-                        <option value="1130">1</option>
-                        <option value="1145">2</option>
-                        <option value="1200">3</option>
-                        <option value="1215">4</option>
-                        <option value="1230">5</option>
-                        <option value="1245">6</option>
-                        <option value="1300">7</option>
-                        <option value="1300">8</option>
-                        <option value="1300">9</option>
-                        <option value="1300">10</option>
-                        <option value="1300">11</option>
-                        <option value="1300">12</option>
-                        <option value="1300">13</option>
-                        <option value="1300">14</option>
-                        <option value="1300">15</option>
-                        <option value="1300">16</option>
-                        <option value="1300">17</option>
-                        <option value="1300">18</option>
-                        <option value="1300">19</option>
-                        <option value="1300">20</option>
-                        <option value="1300">21</option>
-                        <option value="1300">22</option>
-                        <option value="1300">23</option>
-                        <option value="1300">24</option>
+                        <?php for ($n = 1; $n <= 26; $n++) { ?>
+                            <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
