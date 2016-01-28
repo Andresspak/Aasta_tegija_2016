@@ -5,6 +5,7 @@
     <meta http-equiv="content-type" content="text/html;">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""> <!-- TODO: page description -->
 
     <title>Meliss</title>
 
@@ -17,16 +18,6 @@
         rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-    <script
-        src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -71,9 +62,9 @@
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker3'>
                         <input type='text' class="form-control"/>
-						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
-						</span>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
                     </div>
                 </div>
             </div>
@@ -81,7 +72,7 @@
                 $(function () {
                     $('#datetimepicker3').datetimepicker({
                         format: 'LL',
-                        daysOfWeekDisabled: [0, 1, 2, 5, 6]
+                        daysOfWeekDisabled: [0, 6]
                     });
                 });
             </script>
@@ -186,15 +177,17 @@
         <input type="submit" class="btn btn-info btn-lg pull-right" value="Broneeri &raquo;">
     </form>
 </div>
-
-<!-- Bootstrap core JavaScript
-     Placed at the end of the document so the pages
-     load faster!
-================================================== -->
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-        crossorigin="anonymous"></script>
-
 </body>
+
+<script type="text/javascript" src="res/js/jquery-1.12.0.min.js"></script>
+<script src="res/js/bootstrap-3.3.1.min.js"></script>
+<script src="res/js/moment-with-locales.js"></script>
+<script src="res/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+    $('#datetimepicker3').datetimepicker({
+        format: 'LL',
+        daysOfWeekDisabled: [0, 1, 2, 5, 6]
+    });
+</script>
 </html>
