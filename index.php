@@ -1,3 +1,5 @@
+<?php include_once('system/main.php'); ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -22,63 +24,52 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        body {
-        }
-    </style>
-    <script>
-
-    </script>
 </head>
 <body>
 <div class="container">
-    <form role="form" class="clearfix">
+    <form id="bookingForm" role="form" class="clearfix">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-firstname" placeholder="Sinu eesnimi">
+                    <input type="text" class="form-control input-lg" id="contact-firstname" name="firstname"
+                           placeholder="Sinu eesnimi">
                 </div><!-- form-group -->
             </div><!-- col -->
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-lastname" placeholder="Sinu perenimi">
+                    <input type="text" class="form-control input-lg" id="contact-lastname" name="lastname"
+                           placeholder="Sinu perenimi">
                 </div><!-- form-group -->
             </div><!-- col -->
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-email" class="sr-only">Email</label>
-                    <input type="email" class="form-control input-lg" id="contact-email" placeholder="Sinu email">
+                    <input type="email" class="form-control input-lg" id="contact-email" name="email"
+                           placeholder="Sinu email">
                 </div><!-- form-group -->
             </div><!-- col -->
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-nr" placeholder="Sinu number">
+                    <input type="text" class="form-control input-lg" id="contact-nr" name="contact"
+                           placeholder="Sinu number">
                 </div><!-- form-group -->
             </div><!-- col -->
             <div class='col-sm-6'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker3'>
-                        <input type='text' class="form-control"/>
+                        <input type='text' class="form-control" name="date"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker3').datetimepicker({
-                        format: 'LL',
-                        daysOfWeekDisabled: [0, 1, 2, 5, 6]
-                    });
-                });
-            </script>
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <select class="input-group form-control">
+                    <select class="input-group form-control" name="time">
                         <option value="AL" disabled selected="selected" hidden>Vali kellaaeg</option>
                         <option value="1130">11:30</option>
                         <option value="1145">11:45</option>
@@ -92,7 +83,7 @@
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control">
+                    <select class="input-large form-control" name="date">
                         <option value="AL" selected="selected" disabled hidden>Vali inimeste arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -132,12 +123,12 @@
             </div>
         </div><!-- row -->
         <br>
-        <input type="submit" class="btn btn-info btn-lg pull-right" value="Broneeri &raquo;">
+        <input id="submitBtn" type="submit" class="btn btn-info btn-lg pull-right" value="Broneeri &raquo;">
     </form>
 </div>
 </body>
 
-<script type="text/javascript" src="res/js/jquery-1.12.0.min.js"></script>
+<script src="res/js/jquery-1.12.0.min.js"></script>
 <script src="res/js/bootstrap-3.3.1.min.js"></script>
 <script src="res/js/moment-with-locales.js"></script>
 <script src="res/js/bootstrap-datetimepicker.js"></script>
@@ -146,6 +137,14 @@
     $('#datetimepicker3').datetimepicker({
         format: 'LL',
         daysOfWeekDisabled: [0, 1, 2, 5, 6]
+    });
+    $('#submitBtn').on('click', function () {
+        console.log($('#bookingForm').serializeArray());
+        $.post("system/book.php", $('#bookingForm').serializeArray()).success(
+            function (res) {
+                console.log(res);
+            });
+        return false;
     });
 </script>
 </html>
