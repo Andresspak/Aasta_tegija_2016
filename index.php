@@ -48,14 +48,14 @@ $result = $db->query("SELECT * FROM booking");
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-firstname" name="firstname"
+                    <input type="text" class="form-control input-lg" id="contact-firstname" name="client_name"
                            placeholder="Sinu eesnimi">
                 </div><!-- form-group -->
             </div><!-- col -->
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-lastname" name="lastname"
+                    <input type="text" class="form-control input-lg" id="contact-lastname"
                            placeholder="Sinu perenimi">
                 </div><!-- form-group -->
             </div><!-- col -->
@@ -69,7 +69,7 @@ $result = $db->query("SELECT * FROM booking");
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-nr" name="phone"
+                    <input type="text" class="form-control input-lg" id="contact-nr" name="phone_nr"
                            placeholder="Sinu number">
                 </div><!-- form-group -->
             </div><!-- col -->
@@ -77,14 +77,14 @@ $result = $db->query("SELECT * FROM booking");
             <div class='col-sm-6' id="sandbox-container">
                 <div class="form-group">
                     <div class="input-group date">
-                        <input type="text" name="date" class="form-control input-lg" placeholder="Kuupäev"><span
+                        <input type="text" name="chosen_date" class="form-control input-lg" placeholder="Kuupäev"><span
                             class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                 </div>
             </div>
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <select class="input-group form-control input-lg" name="book_time">
+                    <select class="input-group form-control input-lg" name="time_id">
                         <option value="AL" disabled selected="selected" hidden>Vali kellaaeg</option>
                         <option value="1130">11:30</option>
                         <option value="1145">11:45</option>
@@ -98,7 +98,7 @@ $result = $db->query("SELECT * FROM booking");
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control input-lg" name="num_people">
+                    <select class="input-large form-control input-lg" name="seat_nr">
                         <option value="AL" selected="selected" disabled hidden>Vali inimeste arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -108,9 +108,9 @@ $result = $db->query("SELECT * FROM booking");
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control input-lg" name="first_dish">
+                    <select class="input-large form-control input-lg" name="appetizers">
                         <option value="AL" selected="selected" disabled hidden>Vali eelroogade arv</option>
-                        <?php for ($n = 1; $n <= 26; $n++) { ?>
+                        <?php for ($n = 0; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
                         <?php } ?>
                     </select>
@@ -118,9 +118,9 @@ $result = $db->query("SELECT * FROM booking");
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control input-lg" name="main_dish">
+                    <select class="input-large form-control input-lg" name="main_dishes">
                         <option value="AL" selected="selected" disabled hidden>Vali põhiroogade arv</option>
-                        <?php for ($n = 1; $n <= 26; $n++) { ?>
+                        <?php for ($n = 0; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
                         <?php } ?>
                     </select>
@@ -128,9 +128,9 @@ $result = $db->query("SELECT * FROM booking");
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control input-lg" name="last_dish">
+                    <select class="input-large form-control input-lg" name="desserts">
                         <option value="AL" selected="selected" disabled hidden>Vali järelroogade arv</option>
-                        <?php for ($n = 1; $n <= 26; $n++) { ?>
+                        <?php for ($n = 0; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
                         <?php } ?>
                     </select>

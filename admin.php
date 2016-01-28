@@ -66,10 +66,10 @@
         <input id="login" type="submit" name="login" value="Log In">
     </form>
 <?php } ?>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
+    $('#example').DataTable();
 </script>
 
 </body>
