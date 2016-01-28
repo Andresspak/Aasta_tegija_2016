@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3 Datepicker</title>
+    <title>Meliss</title>
 
     <link rel="stylesheet" type="text/css" media="screen"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
@@ -38,11 +38,7 @@
 
     </script>
 </head>
-<br>
-<br>
-<br>
-<br>
-<br>
+<body>
 <div class="container">
     <form role="form" class="clearfix">
         <div class="row">
