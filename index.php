@@ -91,7 +91,7 @@
             <div class='col-sm-6'>
                 <div class="form-group">
                     <select class="input-group form-control">
-                        <option value="AL" selected="selected">Vali kellaaeg</option>
+                        <option value="AL" disabled selected="selected">Vali kellaaeg</option>
                         <option value="1130">11:30</option>
                         <option value="1145">11:45</option>
                         <option value="1200">12:00</option>
