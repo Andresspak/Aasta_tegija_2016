@@ -88,7 +88,7 @@
             <div class='col-sm-6'>
                 <div class="form-group">
                     <select class="input-group form-control">
-                        <option value="AL" disabled selected="selected">Vali kellaaeg</option>
+                        <option value="AL" disabled selected="selected" hidden>Vali kellaaeg</option>
                         <option value="1130">11:30</option>
                         <option value="1145">11:45</option>
                         <option value="1200">12:00</option>
@@ -112,7 +112,7 @@
             <div class='col-sm-3'>
                 <div class="form-group">
                     <select class="input-large form-control">
-                        <option value="AL" selected="selected">Vali eelroogade arv</option>
+                        <option value="AL" selected="selected" disabled hidden>Vali eelroogade arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
                         <?php } ?>
@@ -122,7 +122,7 @@
             <div class='col-sm-3'>
                 <div class="form-group">
                     <select class="input-large form-control">
-                        <option value="AL" selected="selected">Vali põhiroogade arv</option>
+                        <option value="AL" selected="selected" disabled hidden>Vali põhiroogade arv</option>
                         <option value="1130">1</option>
                         <option value="1145">2</option>
                         <option value="1200">3</option>
@@ -153,7 +153,7 @@
             <div class='col-sm-3'>
                 <div class="form-group">
                     <select class="input-large form-control">
-                        <option value="AL" selected="selected">Vali järelroogade arv</option>
+                        <option value="AL" selected="selected" disabled hidden>Vali järelroogade arv</option>
                         <option value="1130">1</option>
                         <option value="1145">2</option>
                         <option value="1200">3</option>
