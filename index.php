@@ -1,4 +1,8 @@
-<?php include_once('system/main.php'); ?>
+<?php include_once('system/main.php');
+
+$result = $db->query("SELECT * FROM booking");
+
+?>
 
 <!DOCTYPE html>
 
@@ -14,16 +18,21 @@
     <link rel="shortcut icon" type="image/x-icon" href="res/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" media="screen"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link
-        href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css"
-        rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css"/>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+        body {
+            background: url("img/restaurant-bg.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -53,23 +62,22 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="contact-name" class="sr-only">Name</label>
-                    <input type="text" class="form-control input-lg" id="contact-nr" name="contact"
+                    <input type="text" class="form-control input-lg" id="contact-nr" name="phone"
                            placeholder="Sinu number">
                 </div><!-- form-group -->
             </div><!-- col -->
-            <div class='col-sm-6'>
+
+            <div class='col-sm-6' id="sandbox-container">
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker3'>
-                        <input type='text' class="form-control" name="date"/>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                    <div class="input-group date">
+                        <input type="text" name="date" class="form-control input-lg" placeholder="Kuupäev"><span
+                            class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                 </div>
             </div>
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <select class="input-group form-control" name="time">
+                    <select class="input-group form-control input-lg" name="book_time">
                         <option value="AL" disabled selected="selected" hidden>Vali kellaaeg</option>
                         <option value="1130">11:30</option>
                         <option value="1145">11:45</option>
@@ -83,7 +91,7 @@
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control" name="date">
+                    <select class="input-large form-control input-lg" name="num_people">
                         <option value="AL" selected="selected" disabled hidden>Vali inimeste arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -93,7 +101,7 @@
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control">
+                    <select class="input-large form-control input-lg" name="first_dish">
                         <option value="AL" selected="selected" disabled hidden>Vali eelroogade arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -103,7 +111,7 @@
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control">
+                    <select class="input-large form-control input-lg" name="main_dish">
                         <option value="AL" selected="selected" disabled hidden>Vali põhiroogade arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -113,7 +121,7 @@
             </div>
             <div class='col-sm-3'>
                 <div class="form-group">
-                    <select class="input-large form-control">
+                    <select class="input-large form-control input-lg" name="last_dish">
                         <option value="AL" selected="selected" disabled hidden>Vali järelroogade arv</option>
                         <?php for ($n = 1; $n <= 26; $n++) { ?>
                             <option value="<?php echo $n; ?>"><?php echo $n; ?></option>
@@ -128,15 +136,23 @@
 </div>
 </body>
 
-<script src="res/js/jquery-1.12.0.min.js"></script>
-<script src="res/js/bootstrap-3.3.1.min.js"></script>
-<script src="res/js/moment-with-locales.js"></script>
-<script src="res/js/bootstrap-datetimepicker.js"></script>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="locales/bootstrap-datepicker.et.min.js"></script>
 <script type="text/javascript">
-    $('#datetimepicker3').datetimepicker({
-        format: 'LL',
-        daysOfWeekDisabled: [0, 1, 2, 5, 6]
+    // When the document is ready
+    $(document).ready(function () {
+        $('#sandbox-container .input-group.date').datepicker({
+            weekStart: 1,
+            language: "et",
+            orientation: "bottom auto",
+            keyboardNavigation: false,
+            daysOfWeekDisabled: "0,1,2,5,6",
+            autoclose: true
+        });
     });
     $('#submitBtn').on('click', function () {
         console.log($('#bookingForm').serializeArray());
