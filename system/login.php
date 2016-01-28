@@ -5,9 +5,11 @@ if (isset($_POST['login'])) {
     if (empty($un) || empty($pw)) {
         exit('Username or Password is missing!');
     } else {
+
+        var_dump('OKOKOK');
         $result = $db->query("SELECT * FROM admin WHERE password = sha('$pw') AND username = '$un'");
         if ($result) {
-            $_SESSION['user'] = $result->fetch_assoc();
+            $_SESSION['user'] = true;
             HEADER('location: ../admin.php');
         } else {
             exit('Invalid Username or Password');

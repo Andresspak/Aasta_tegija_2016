@@ -8,7 +8,9 @@ define('DATABASE_DATABASE', "tegija");
 
 // Session
 session_start();
-$user = &$_SESSION['user'];
+if (!empty($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+}
 
 // Database
 $db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_DATABASE) or die(mysqli_connect_error());
